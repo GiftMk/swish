@@ -1,0 +1,70 @@
+{
+	"controllers": [
+		{
+			"name": "ActorsController",
+			"importPath": "/Users/giftmkwara/Developer/projects/ts-spring/dist/examples/controller/ActorsController.js",
+			"dependencies": ["InMemoryDatabase", "RandomIntGenerator"],
+			"getMappings": [
+				{
+					"name": "getActors",
+					"parameters": [
+						{
+							"type": "query",
+							"name": "filter",
+							"key": "happy"
+						}
+					]
+				},
+				{
+					"name": "getActorById",
+					"parameters": [
+						{
+							"type": "path",
+							"name": "id"
+						}
+					]
+				},
+				{
+					"name": "getRandomActor",
+					"parameters": []
+				}
+			],
+			"postMappings": [],
+			"putMappings": [],
+			"deleteMappings": []
+		},
+		{
+			"name": "DirectorsController",
+			"importPath": "/Users/giftmkwara/Developer/projects/ts-spring/dist/examples/controller/DirectorsController.js",
+			"dependencies": ["InMemoryDatabase", "RandomIntGenerator"],
+			"getMappings": [
+				{
+					"name": "getDirectors",
+					"parameters": []
+				},
+				{
+					"name": "getRandomDirector",
+					"parameters": []
+				}
+			],
+			"postMappings": [],
+			"putMappings": [],
+			"deleteMappings": []
+		},
+		{
+			"name": "MoviesController",
+			"importPath": "/Users/giftmkwara/Developer/projects/ts-spring/dist/examples/controller/MoviesController.js",
+			"dependencies": ["InMemoryDatabase"],
+			"getMappings": [
+				{
+					"name": "getMovies",
+					"parameters": []
+				}
+			],
+			"postMappings": [],
+			"putMappings": [],
+			"deleteMappings": []
+		}
+	],
+	"components": []
+}
