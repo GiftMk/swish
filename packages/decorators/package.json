@@ -1,0 +1,9 @@
+{
+  "name": "@swish/decorators",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": "./src/index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

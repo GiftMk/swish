@@ -1,0 +1,10 @@
+{
+  "name": "@swish/ioc",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": "./src/index.js",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,29 +1,13 @@
 {
-	"name": "ts-spring",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"type": "module",
-	"scripts": {
-		"build": "tsc",
-		"start": "node dist/index.js",
-		"dev": "pnpm build && pnpm start",
-		"tidy": "biome format --write . && biome lint --write ."
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
-		"@types/express": "^5.0.1",
-		"@types/node": "^22.13.14",
-		"tsx": "^4.19.3",
-		"typescript": "^5.8.2"
-	},
-	"dependencies": {
-		"express": "^4.21.2",
-		"reflect-metadata": "^0.2.2",
-		"ts-morph": "^25.0.1",
-		"uuid": "^11.1.0"
-	}
+  "name": "swish",
+  "version": "1.0.0",
+  "scripts": {
+    "tidy": "biome format --write . && biome lint --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4"
+  }
 }

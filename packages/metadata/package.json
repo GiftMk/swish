@@ -1,0 +1,16 @@
+{
+  "name": "@swish/metadata",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@swish/decorators": "workspace:*",
+    "ts-morph": "^25.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

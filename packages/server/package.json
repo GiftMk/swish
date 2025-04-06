@@ -1,0 +1,11 @@
+{
+  "name": "@swish/server",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": "./src/index.js",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "typescript": "^5.8.3"
+  }
+}
