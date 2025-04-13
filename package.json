@@ -1,6 +1,12 @@
 {
-	"name": "swish",
+	"name": "@swish/core",
 	"version": "1.0.0",
+	"type": "module",
+	"exports": {
+		"app": "./packages/app/src/index.js",
+		"decorators": "./packages/decorators/src/index.js",
+		"errors": "./packages/errors/src/index.js"
+	},
 	"scripts": {
 		"tidy": "biome format --write . && biome lint --write ."
 	},
