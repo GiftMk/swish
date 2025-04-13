@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { Swish } from "@swish/app";
 
 const app = new Swish();

@@ -7,9 +7,11 @@
   "dependencies": {
     "@swish/ioc": "workspace:*",
     "@swish/metadata": "workspace:*",
-    "@swish/server": "workspace:*"
+    "@swish/errors": "workspace:*",
+    "express": "^5.1.0"
   },
   "devDependencies": {
+    "@types/express": "^5.0.1",
     "@types/node": "^22.14.0"
   }
 }

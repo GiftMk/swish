@@ -1,3 +1,5 @@
+import type { ClassConstructor } from "@swish/ioc";
+
 export const Controller = (baseRoute = "") => {
-  return <T extends object>(target: T) => {};
+  return <T extends ClassConstructor>(ctor: T) => {};
 };

@@ -2,7 +2,7 @@ import { Project } from "ts-morph";
 import type { ApplicationMeta } from "../types";
 import { ClassLookup } from "./class-lookup";
 import { resolveComponents } from "./components/resolve-components";
-import { resolveControllers } from "./controllers/resolve-controller";
+import { resolveControllers } from "./controllers/resolve-controllers";
 
 const DEFAULT_TS_CONFIG_PATH = "tsconfig.json";
 

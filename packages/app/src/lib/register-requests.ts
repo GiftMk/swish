@@ -1,41 +1,39 @@
 import type { RouteBinding } from "../types/route-binding";
-import type { SwishServer } from "@swish/server";
+import type { Express } from "express";
+import { runAction } from "./run-action";
 
 type HttpMethod = "get" | "put" | "post" | "patch" | "delete";
 
 export const registerRequests = (
-  server: SwishServer,
+  server: Express,
   method: HttpMethod,
   requests: RouteBinding[]
 ) => {
   for (const { route, action, parameters } of requests) {
-    server[method](route, (request) => {
-      // const resolvedParameters = parameters.map((parameter) => {
-      //   switch (parameter.type) {
-      //     case "query":
-      //       return request.query[parameter.key];
-      //     case "body":
-      //       return request.body;
-      //     case "path":
-      //       return request.params[parameter.name];
-      //   }
-      // });
+    server[method](route, async (req, res) => {
+      const resolvedParameters = parameters.map((parameter) => {
+        switch (parameter.type) {
+          case "query":
+            return req.query[parameter.key ?? parameter.name];
+          case "body":
+            return req.body;
+          case "path":
+            return req.params[parameter.name];
+          case "request":
+            return req;
+          case "response": {
+            return res;
+          }
+        }
+      });
 
-      const data = action();
+      const data = runAction(res, () => action(...resolvedParameters));
 
-      if (typeof data === "object") {
-        return {
-          body: JSON.stringify(data),
-        };
+      if (data instanceof Promise) {
+        res.send(await data);
+      } else {
+        res.send(data);
       }
-
-      if (data) {
-        return {
-          body: data.toString(),
-        };
-      }
-
-      return {};
     });
   }
 };

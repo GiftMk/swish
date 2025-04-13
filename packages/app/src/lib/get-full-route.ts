@@ -13,6 +13,11 @@ const normaliseRoute = (route: string): string => {
 };
 
 export const getFullRoute = (baseRoute: string, route: string): string => {
-  const separator = route.length ? "/" : "";
-  return `/${normaliseRoute(baseRoute)}${separator}${normaliseRoute(route)}`;
+  const normalisedBaseRoute = normaliseRoute(baseRoute);
+
+  if (normalisedBaseRoute.length) {
+    const separator = route.length ? "/" : "";
+    return `/${normaliseRoute(baseRoute)}${separator}${normaliseRoute(route)}`;
+  }
+  return `/${normaliseRoute(route)}`;
 };

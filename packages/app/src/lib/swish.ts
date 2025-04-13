@@ -1,12 +1,16 @@
 import { IoCContainer } from "@swish/ioc";
-import { getApplicationMeta, type ApplicationMeta } from "@swish/metadata";
+import {
+  getApplicationMeta,
+  type ApplicationMeta,
+  type ClassMeta,
+} from "@swish/metadata";
 import { registerControllers } from "./register-controllers";
 import { importClasses } from "./import-classes";
-import { SwishServer } from "@swish/server";
+import express from "express";
 
 export class Swish {
   private _container: IoCContainer | null = null;
-  private _server: SwishServer | null = null;
+  private _server: express.Express | null = null;
 
   get container(): IoCContainer {
     if (!this._container) {
@@ -18,7 +22,7 @@ export class Swish {
     return this._container;
   }
 
-  get server(): SwishServer {
+  get server(): express.Express {
     if (!this._server) {
       throw new Error("Server is null. Have you initialized the application?");
     }
@@ -29,7 +33,8 @@ export class Swish {
   async init() {
     const applicationMeta = getApplicationMeta();
     this._container = await this.createContainer(applicationMeta);
-    this._server = new SwishServer();
+    this._server = express();
+    this._server.use(express.json());
 
     registerControllers(
       this.server,
@@ -41,13 +46,15 @@ export class Swish {
   private async createContainer(
     applicationMeta: ApplicationMeta
   ): Promise<IoCContainer> {
-    const controllers = await importClasses(applicationMeta.controllers);
-    const components = await importClasses(applicationMeta.components);
-    return new IoCContainer(controllers.concat(components));
+    const classes: Omit<ClassMeta, "declaration">[] = [
+      ...applicationMeta.controllers,
+      ...applicationMeta.components,
+    ];
+    return new IoCContainer(await importClasses(classes));
   }
 
   listen(port: number, callback?: (error?: Error) => void) {
-    this.server.start(port, (e) => {
+    this.server.listen(port, (e) => {
       console.log(`Swish listening on http://localhost:${port}`);
       callback?.(e);
     });

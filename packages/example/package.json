@@ -6,14 +6,22 @@
   "main": "index.js",
   "license": "ISC",
   "scripts": {
-    "start": "tsx src/index.ts"
+    "start": "tsx src/index.ts",
+    "drizzle:push": "drizzle-kit push"
   },
   "dependencies": {
     "@swish/app": "workspace:*",
     "@swish/decorators": "workspace:*",
+    "@swish/errors": "workspace:*",
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.41.0",
+    "pg": "^8.14.1",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/pg": "^8.11.12",
+    "drizzle-kit": "^0.30.6",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3"
   }

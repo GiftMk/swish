@@ -2,10 +2,10 @@ import type { IoCContainer } from "@swish/ioc";
 import type { ControllerMeta } from "@swish/metadata";
 import { getControllerBindings } from "./get-controller-bindings";
 import { registerRequests } from "./register-requests";
-import type { SwishServer } from "@swish/server";
+import type { Express } from "express";
 
 export const registerControllers = async (
-  server: SwishServer,
+  server: Express,
   container: IoCContainer,
   controllers: ControllerMeta[]
 ) => {

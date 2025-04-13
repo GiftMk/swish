@@ -1,4 +1,4 @@
-import { Query, Body } from "@swish/decorators";
+import { Query, Body, Req, Res } from "@swish/decorators";
 import type { MethodDeclaration } from "ts-morph";
 import type { ParameterMeta } from "../../types";
 import { getDecoratorText } from "./get-decorator-text";
@@ -13,11 +13,11 @@ export const resolveParameters = (
 
     const queryDecorator = parameter.getDecorator(Query.name);
     if (queryDecorator) {
-      const key = getDecoratorText(queryDecorator);
+      const decoratorText = getDecoratorText(queryDecorator);
       parameters.push({
         type: "query",
         name,
-        key,
+        key: decoratorText.length ? decoratorText : undefined,
       });
 
       continue;
@@ -27,6 +27,26 @@ export const resolveParameters = (
     if (bodyDecorator) {
       parameters.push({
         type: "body",
+        name,
+      });
+
+      continue;
+    }
+
+    const requestDecorator = parameter.getDecorator(Req.name);
+    if (requestDecorator) {
+      parameters.push({
+        type: "request",
+        name,
+      });
+
+      continue;
+    }
+
+    const responseDecorator = parameter.getDecorator(Res.name);
+    if (responseDecorator) {
+      parameters.push({
+        type: "response",
         name,
       });
 
