@@ -1,8 +1,8 @@
-import "dotenv/config";
-import { Swish } from "@swish/app";
+import 'dotenv/config'
+import { Swish } from '@swish/app'
 
-const app = new Swish();
+const app = new Swish()
 
-await app.init();
+await app.init()
 
-app.listen(3000);
+app.listen(3000)

@@ -1,23 +1,23 @@
-import { Project } from "ts-morph";
-import type { ApplicationMeta } from "../types";
-import { ClassLookup } from "./class-lookup";
-import { resolveComponents } from "./components/resolve-components";
-import { resolveControllers } from "./controllers/resolve-controllers";
+import { Project } from 'ts-morph'
+import type { ApplicationMeta } from '../types'
+import { ClassLookup } from './class-lookup'
+import { resolveComponents } from './components/resolve-components'
+import { resolveControllers } from './controllers/resolve-controllers'
 
-const DEFAULT_TS_CONFIG_PATH = "tsconfig.json";
+const DEFAULT_TS_CONFIG_PATH = 'tsconfig.json'
 
 export const getApplicationMeta = ({
-  tsConfigFilePath = DEFAULT_TS_CONFIG_PATH,
+	tsConfigFilePath = DEFAULT_TS_CONFIG_PATH,
 }: {
-  tsConfigFilePath?: string;
+	tsConfigFilePath?: string
 } = {}): ApplicationMeta => {
-  const project = new Project({
-    tsConfigFilePath,
-  });
-  const lookup = new ClassLookup(project);
+	const project = new Project({
+		tsConfigFilePath,
+	})
+	const lookup = new ClassLookup(project)
 
-  return {
-    controllers: resolveControllers(lookup),
-    components: resolveComponents(lookup),
-  };
-};
+	return {
+		controllers: resolveControllers(lookup),
+		components: resolveComponents(lookup),
+	}
+}

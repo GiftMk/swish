@@ -1,3 +1,3 @@
-import type express from "express";
+import type express from 'express'
 
-export type HttpResponse = Omit<express.Response, "send">;
+export type HttpResponse = Omit<express.Response, 'send'>

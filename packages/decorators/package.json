@@ -1,13 +1,13 @@
 {
-  "name": "@swish/decorators",
-  "version": "1.0.0",
-  "type": "module",
-  "exports": "./src/index.js",
-  "license": "ISC",
-  "dependencies": {
-    "@swish/ioc": "workspace:*"
-  },
-  "devDependencies": {
-    "@types/node": "^22.14.0"
-  }
+	"name": "@swish/decorators",
+	"version": "1.0.0",
+	"type": "module",
+	"exports": "./src/index.js",
+	"license": "ISC",
+	"dependencies": {
+		"@swish/ioc": "workspace:*"
+	},
+	"devDependencies": {
+		"@types/node": "^22.14.0"
+	}
 }

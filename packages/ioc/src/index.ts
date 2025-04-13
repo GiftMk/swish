@@ -1,2 +1,2 @@
-export * from "./lib/ioc-container";
-export * from "./types";
+export * from './lib/ioc-container'
+export * from './types'

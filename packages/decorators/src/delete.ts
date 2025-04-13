@@ -1,3 +1,3 @@
-export const Delete = (route = "") => {
-  return (target: object, propertyKey: string | symbol) => {};
-};
+export const Delete = (route = '') => {
+	return (target: object, propertyKey: string | symbol) => {}
+}

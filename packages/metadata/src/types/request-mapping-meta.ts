@@ -1,7 +1,7 @@
-import type { ParameterMeta } from "./parameter-meta";
+import type { ParameterMeta } from './parameter-meta'
 
 export type RequestMappingMeta = {
-  name: string;
-  route: string;
-  parameters: ParameterMeta[];
-};
+	name: string
+	route: string
+	parameters: ParameterMeta[]
+}

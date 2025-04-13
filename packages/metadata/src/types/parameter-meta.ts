@@ -1,33 +1,33 @@
-export type ParameterType = "query" | "body" | "path" | "request" | "response";
+export type ParameterType = 'query' | 'body' | 'path' | 'request' | 'response'
 
 export type ParameterMeta = {
-  type: ParameterType;
-  name: string;
+	type: ParameterType
+	name: string
 } & (
-  | QueryParameterMeta
-  | RequestBodyParameterMeta
-  | PathVariableParameterMeta
-  | RequestVariableMeta
-  | ResponseVariableMeta
-);
+	| QueryParameterMeta
+	| RequestBodyParameterMeta
+	| PathVariableParameterMeta
+	| RequestVariableMeta
+	| ResponseVariableMeta
+)
 
 export type QueryParameterMeta = {
-  type: "query";
-  key?: string;
-};
+	type: 'query'
+	key?: string
+}
 
 export type RequestBodyParameterMeta = {
-  type: "body";
-};
+	type: 'body'
+}
 
 export type PathVariableParameterMeta = {
-  type: "path";
-};
+	type: 'path'
+}
 
 export type RequestVariableMeta = {
-  type: "request";
-};
+	type: 'request'
+}
 
 export type ResponseVariableMeta = {
-  type: "response";
-};
+	type: 'response'
+}

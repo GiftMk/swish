@@ -1,3 +1,3 @@
-import type express from "express";
+import type express from 'express'
 
-export type HttpRequest = express.Request;
+export type HttpRequest = express.Request

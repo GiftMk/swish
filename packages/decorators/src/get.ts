@@ -1,3 +1,3 @@
-export const Get = (route = "") => {
-  return (target: object, propertyKey: string | symbol) => {};
-};
+export const Get = (route = '') => {
+	return (target: object, propertyKey: string | symbol) => {}
+}
