@@ -35,6 +35,10 @@ importers:
         version: 22.14.0
 
   packages/decorators:
+    dependencies:
+      '@swish/ioc':
+        specifier: workspace:*
+        version: link:../ioc
     devDependencies:
       '@types/node':
         specifier: ^22.14.0
